@@ -1,0 +1,147 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	display: flex
+	flex-direction: column
+	height: 100%
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	padding: 0
+	margin: 0
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+
+::selection
+	background-color: $accent
+	color: #fff
+
+.main-content
+	/* 1 flex-grow, 0 flex-shrink, auto flex-basis */
+	flex: 1 0 auto
+	max-width: 1470px
+	margin: 0 auto
+	width: 100%
+
+.container
+	max-width: 1470px
+	width: 100%
+
+.headerWrap
+	display: flex
+	justify-content: center
+	flex-direction: row
+	border-bottom: 3px solid #FFC700
+	.header
+		display: flex
+		justify-content: space-between
+		flex-direction: row
+		align-items: center
+		height: 5rem
+		margin:
+			left: 15px
+			right: 15px
+		> *
+			display: flex
+			flex-basis: 300px
+		.address
+			justify-content: center
+			.placemark
+				margin-right: 20px
+				display: flex
+				align-items: center
+			.place
+				p
+					font-size: .9rem
+					color: #000
+					font-weight: normal
+
+		.phone
+			align-items: center
+			flex-direction: column
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import "media"
+// Всегда в конце
