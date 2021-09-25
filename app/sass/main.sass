@@ -1,6 +1,7 @@
 @import "fonts"
 @import "libs"
 @import "vars"
+@import "./_mixins/_background-icon"
 
 *
 	-webkit-box-sizing: border-box
@@ -38,19 +39,38 @@ body textarea:required:valid
 
 html, body
 	height: 100%
-
+	font-size: 14px
+	line-height: 1.65
 body
 	display: flex
 	flex-direction: column
 	height: 100%
-	font-size: 16px
 	min-width: 320px
 	position: relative
-	line-height: 1.65
 	font-family: $default-font
 	overflow-x: hidden
 	padding: 0
 	margin: 0
+
+p, a
+	margin: 0
+	padding: 0
+
+.h1
+	font-size: 2.5vw
+	Line-height: 3vw
+	font-family: OpenSans-Bold
+	@media only screen and (max-width : $md)
+		font-size: 7vw
+		Line-height: 9vw
+
+.h4
+	font-size: 1vw
+	Line-height: 1vw
+	font-family: OpenSans-Bold
+	@media only screen and (max-width : $md)
+		font-size: 4vw
+		Line-height: 4vw
 
 .img-responsive
 	display: block
@@ -64,15 +84,82 @@ body
 	background-color: $accent
 	color: #fff
 
+// icons
+.icon
+	width: 24px
+	height: auto
+
+.imgPlacemark
+	+background-icon('../img/placemark.svg', no-repeat, center, contain)
+
+.imgPhone
+	+background-icon('../img/phone.svg', no-repeat, center, contain)
+
+//buttons
+.btnMnu
+	top: 0px
+	width: auto
+	height: auto
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	cursor: pointer
+	position: relative
+
+.btnRow
+	height: 3px
+	width: 21px
+	margin: 2px 0
+	background-color: #000
+	position: relative
+	-webkit-transition: all .5s
+	-o-transition: all .5s
+	transition: all .5s
+
+.btnMnu.active .btnRow
+	&:first-child
+		-webkit-transform: rotate(-135deg)
+		-ms-transform: rotate(-135deg)
+		-o-transform: rotate(-135deg)
+		transform: rotate(-135deg)
+		top: 8px
+	&:last-child
+		-webkit-transform: rotate(-225deg)
+		-ms-transform: rotate(-225deg)
+		-o-transform: rotate(-225deg)
+		transform: rotate(-225deg)
+		top: -6px
+	&:nth-child(2)
+		opacity: 0
+
+.btn
+	border: none
+	font: 1rem/1.6rem $default-font
+	padding: 1rem 2rem
+	cursor: pointer
+	&.primary
+		color: #fff
+		background-color: $accent
+		&:hover
+			background-color: lighten($accent, 10%)
+	&.secondary
+		color: #000
+		background-color: $secondary
+		font: 1.3rem/1.86rem OpenSans-Bold
+		padding: 1.8rem 3.5rem
+		&:hover
+			background-color: lighten($secondary, 10%)
+
 .main-content
 	/* 1 flex-grow, 0 flex-shrink, auto flex-basis */
 	flex: 1 0 auto
-	max-width: 1470px
+	max-width: $container-widths
 	margin: 0 auto
 	width: 100%
 
 .container
-	max-width: 1470px
+	max-width: $container-widths
 	width: 100%
 
 .headerWrap
@@ -80,67 +167,129 @@ body
 	justify-content: center
 	flex-direction: row
 	border-bottom: 3px solid #FFC700
+	margin:
+		left: 15px
+		right: 15px
+	@media only screen and (max-width : $lg)
+		border-bottom: none
 	.header
 		display: flex
 		justify-content: space-between
 		flex-direction: row
 		align-items: center
-		height: 5rem
-		margin:
-			left: 15px
-			right: 15px
+		height: 5.7rem
+		@media only screen and (max-width : $lg)
+			height: 4rem
 		> *
 			display: flex
 			flex-basis: 300px
+		.logo
+			@media only screen and (max-width : $lg)
+				flex-shrink: 1
 		.address
 			justify-content: center
-			.placemark
-				margin-right: 20px
-				display: flex
-				align-items: center
+			@media only screen and (max-width : $lg)
+				display: none
+			.imgPlacemark
+				margin-right: 1.3rem
 			.place
 				p
-					font-size: .9rem
+					font: 1rem/1.4rem $default-font
 					color: #000
 					font-weight: normal
+		.listPhoneNumbers
+			@media only screen and (max-width : $lg)
+				display: none
+			justify-content: center
+			.imgPhone
+				margin-right: 1.3rem
+			.phones
+				display: flex
+				flex-direction: column
+				a
+					font: 1rem/1.4rem $default-font
+					text-decoration: none
+					color: #000
+		.callback
+			@media only screen and (max-width : $lg)
+				display: none
+			justify-content: end
+			flex-shrink: 2
+		.mobileMenu
+			justify-content: end
+			@media only screen and (max-width : $lg)
+				display: flex
+			@media only screen and (min-width : $lg)
+				display: none
 
-		.phone
-			align-items: center
-			flex-direction: column
+.banner
+	display: flex
+	background-color: $accent
+	justify-content: center
+	align-items: center
+	height: auto
+	padding: 4.78rem 0
+	@media only screen and (max-width : $lg)
+		padding: 1.5rem 0 0
+	.bannerContent
+		display: flex
+		justify-content: space-between
+		color: #fff
+		> *
+			flex: 1 1 auto
+		.bannerLeftAside
+			margin:
+				left: 15px
+				right: 15px
+			.bannerTitle
+				margin-bottom: 2.85rem
+			.bannerDescription
+				margin-bottom: 2.85rem
+				p
+					font: 1rem/1.4rem $default-font
+			@media only screen and (max-width : $lg)
+				.bannerTitle, .bannerDescription
+					margin-bottom: 2.14rem
+		.bannerRightAside
+			display: flex
+			justify-content: center
+
+		@media only screen and (max-width : $lg)
+			flex-wrap: wrap
 
 
+.advantage
+	margin-top: 5.6rem
+	.advantageList
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		align-content: space-between
+		height: 32rem
+		.advantageItem
+			padding: 1.1rem
+				bottom: 1.8rem
+			width: 32%
+			height: auto
+			box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2)
+			.advantageItemTitle
+				display: flex
+				justify-content: space-around
+				align-items: center
+				margin-bottom: .5rem
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+				.itemIcon
+					margin-right: auto
+				.itemTitle
+					width: 100%
+					text-align: center
+					p
+						font: 1.2rem/1.4rem OpenSans-Bold
+			.advantageItemDescription
+				p
+					text-align: center
+					font: 1rem/1.4rem $default-font
+					color: #000
 
 
 @import "media"
