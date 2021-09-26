@@ -14,28 +14,28 @@
 		box-sizing: border-box
 
 *::-webkit-input-placeholder
-	color: #666
+	color: #B7B7B7
 	opacity: 1
 
 *:-moz-placeholder
-	color: #666
+	color: #B7B7B7
 	opacity: 1
 
 *::-moz-placeholder
-	color: #666
+	color: #B7B7B7
 	opacity: 1
 
 *:-ms-input-placeholder
-	color: #666
+	color: #B7B7B7
 	opacity: 1
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
-	color: #666
+	color: #B7B7B7
 
 body input:required:valid,
 body textarea:required:valid
-	color: #666
+	color: #B7B7B7
 
 html, body
 	height: 100%
@@ -84,6 +84,16 @@ p, a
 	background-color: $accent
 	color: #fff
 
+// form elements
+.formInput
+	border-radius: 8px
+	height: 3.64rem
+	width: 100%
+	padding: .5rem 2rem
+	outline: none
+	border: 1px solid #B7B7B7
+	font: 1rem/1.2rem $default-font
+
 // icons
 .icon
 	width: 24px
@@ -94,6 +104,15 @@ p, a
 
 .imgPhone
 	+background-icon('../img/phone.svg', no-repeat, center, contain)
+
+.imgInstagram
+	+background-icon('../img/insta.svg', no-repeat, center, contain)
+
+.imgTwitter
+	+background-icon('../img/twiter.svg', no-repeat, center, contain)
+
+.imgFacebook
+	+background-icon('../img/face.svg', no-repeat, center, contain)
 
 //buttons
 .btnMnu
@@ -135,7 +154,7 @@ p, a
 
 .btn
 	border: none
-	font: 1rem/1.6rem $default-font
+	font: 1rem/1.6rem OpenSans-Bold
 	padding: 1rem 2rem
 	cursor: pointer
 	&.primary
@@ -143,6 +162,11 @@ p, a
 		background-color: $accent
 		&:hover
 			background-color: lighten($accent, 10%)
+		&.secondaryColor
+			background-color: $secondary
+			color: $accent
+			&:hover
+				background-color: lighten($secondary, 10%)
 	&.secondary
 		color: #000
 		background-color: $secondary
@@ -151,12 +175,16 @@ p, a
 		&:hover
 			background-color: lighten($secondary, 10%)
 
+
 .main-content
 	/* 1 flex-grow, 0 flex-shrink, auto flex-basis */
 	flex: 1 0 auto
 	max-width: $container-widths
 	margin: 0 auto
 	width: 100%
+	padding:
+		left: 15px
+		right: 15px
 
 .container
 	max-width: $container-widths
@@ -259,38 +287,212 @@ p, a
 
 
 .advantage
-	margin-top: 5.6rem
+	margin-top: 2.75rem
+	@media only screen and (max-width : $md)
+		margin-top: 1rem
 	.advantageList
 		display: flex
 		flex-wrap: wrap
 		justify-content: space-between
 		align-content: space-between
-		height: 32rem
 		.advantageItem
+			margin:
+				top: 2.85rem
+				bottom: 2.85rem
 			padding: 1.1rem
 				bottom: 1.8rem
-			width: 32%
+			width: 31.7%
 			height: auto
 			box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2)
+			@media only screen and (max-width : $lg)
+				width: 48.8%
+				margin:
+					top: .8rem
+					bottom: .8rem
+			@media only screen and (max-width : $md)
+				width: 100%
 			.advantageItemTitle
 				display: flex
 				justify-content: space-around
 				align-items: center
 				margin-bottom: .5rem
-
 				.itemIcon
 					margin-right: auto
+					@media only screen and (max-width : 420px)
+						img
+							width: 2.4rem
 				.itemTitle
 					width: 100%
 					text-align: center
 					p
 						font: 1.2rem/1.4rem OpenSans-Bold
+						color: $accent
 			.advantageItemDescription
 				p
 					text-align: center
-					font: 1rem/1.4rem $default-font
+					font: .9rem/1.4rem $default-font
 					color: #000
 
+
+
+.promotions
+	.promotionsTitle
+		margin-top: 2rem
+		margin-bottom: 4rem
+		.h1
+			color: $accent
+	.promotionsList
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		align-content: space-between
+		.promotionsItem
+			display: flex
+			flex-direction: row
+			justify-content: space-between
+			padding: 2.7rem
+				left: 2.2rem
+				right: 0
+				bottom: 0
+			margin:
+				top: 1.3rem
+				bottom: 1.3rem
+			width: 48.8%
+			@media only screen and (max-width : $md)
+				width: 100%
+			height: auto
+			box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2)
+			.promotionsItemContent
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+				padding-bottom: 2.8rem
+				margin-right: 1rem
+				.promotionsItemDescription
+				.promotionsItemTitle
+				.promotionsItemCallback
+					button
+						padding: 1.2rem 3.5rem
+						line-height: 1.6rem
+			.promotionsItemImage
+				display: flex
+
+
+.service
+	margin-bottom: 5.7rem
+	.serviceTitle
+		margin-top: 3.8rem
+		margin-bottom: 3.7rem
+		.h1
+			color: $accent
+	.serviceList
+		display: flex
+		flex-wrap: wrap
+		flex-direction: row
+		justify-content: space-between
+		.serviceItem
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			align-items: center
+			padding: 1.4rem 2.6rem
+			box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2)
+			width: 23.2%
+			@media only screen and (max-width : $lg)
+				width: 48.8%
+				margin:
+					top: .8rem
+					bottom: .8rem
+			@media only screen and (max-width : $md)
+				width: 100%
+			.serviceContent
+				display: flex
+				align-items: center
+				flex-direction: column
+				.serviceImage
+					img
+						display: block
+				.serviceName
+					padding: 1rem
+					p
+						text-align: center
+						font: 1.2rem/1.7rem OpenSans-Bold
+			.serviceSubscribe
+				width: 100%
+				button
+					width: 100%
+
+
+.revert
+	.bannerLeftAside
+		order: 2
+	.bannerRightAside
+		order: 1
+
+
+.footer
+	background-color: $accent
+	height: 32.85rem
+	display: flex
+	align-items: center
+	flex-direction: column
+	justify-content: space-between
+	padding-top: 2.8rem
+	padding-bottom: 3rem
+.links
+	margin:
+		left: 15px
+		right: 15px
+	@media only screen and (max-width : $lg)
+		display: none
+	ul
+		padding: 0
+		margin: 0
+		display: flex
+		align-items: stretch
+		justify-content: space-between
+		width: 100%
+		li
+			display: block
+			flex: 0 1 auto
+			list-style-type: none
+			a
+				color: #fff
+				text-decoration: none
+				font: 1.2rem/1.8rem OpenSans-Bold
+				&:hover
+					text-decoration: underline
+
+.subscribeForm
+	margin:
+		left: 15px
+		right: 15px
+	form
+		display: flex
+		justify-content: center
+		flex-wrap: wrap
+		.formInput
+			width: 24rem
+			margin-right: 1.6rem
+			@media only screen and (max-width : 585px)
+				margin-right: 0
+				width: 100%
+				margin-bottom: 2rem
+		button
+			padding: 14px 50px
+
+
+.social
+	display: flex
+	> *
+		margin: 0 1rem
+	.icon
+		width: 40px
+		height: 41px
+
+.privacy
+	p
+		color: #898989
 
 @import "media"
 // Всегда в конце
