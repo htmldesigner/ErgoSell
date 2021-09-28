@@ -31,7 +31,7 @@ gulp.task('sass', function() {
 	.pipe(rename({suffix: '.min', prefix : ''}))
 	.pipe(autoprefixer({
 		// grid: true, // Optional. Enable CSS Grid
-		overrideBrowserslist: ['last 10 versions']
+		overrideBrowserslist: ['last 1 versions']
 	}))
 	.pipe(cleanCSS()) // Опционально, закомментировать при отладке
 	.pipe(gulp.dest('app/css'))
