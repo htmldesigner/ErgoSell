@@ -57,12 +57,12 @@ p, a
 	padding: 0
 
 .h1
-	font-size: 2.5vw
-	Line-height: 3vw
+	font-size: 3.42rem
+	Line-height: 4rem
 	font-family: OpenSans-Bold
-	@media only screen and (max-width : $lg)
+	@media only screen and (max-width : 1190px)
 		font-size: 4vw
-		Line-height: 6vw
+		Line-height: 5vw
 	@media only screen and (max-width : $md)
 		font-size: 5vw
 		Line-height: 9vw
@@ -281,11 +281,14 @@ p, a
 		color: #fff
 		> *
 			flex: 1 1 auto
+		@media only screen and (max-width : $lg)
+			flex-wrap: wrap
 		.bannerLeftAside
 			width: 50%
 			margin:
 				left: 15px
 				right: 15px
+			flex-shrink: 0
 			.bannerTitle
 				margin-bottom: 2.85rem
 			.bannerDescription
@@ -300,12 +303,11 @@ p, a
 				.bannerTitle, .bannerDescription
 					margin-bottom: 2.14rem
 		.bannerRightAside
+			flex-shrink: 4
 			overflow: hidden
-			width: 50%
+			//width: 50%
 			display: flex
 			justify-content: center
-		@media only screen and (max-width : $lg)
-			flex-wrap: wrap
 
 
 // help class for reversal of banner sections
@@ -367,16 +369,19 @@ p, a
 					font: .9rem/1.4rem $default-font
 					color: #000
 
-
 .promotions
 	.promotionsTitle
 		margin:
 			top: 2rem
 			bottom: 4rem
+		@media only screen and (max-width : $lg)
+			margin:
+				top: 2rem
+				bottom: 2rem
 		@media only screen and (max-width : $md)
 			margin:
-				top: 1.5rem
-				bottom: 1rem
+				top: 1rem
+				bottom: 1.2rem
 		.h1
 			color: $accent
 			@media only screen and (max-width : $md)
@@ -400,29 +405,39 @@ p, a
 			width: 48.8%
 			height: auto
 			box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2)
-			@media only screen and (max-width : 1086px)
+			@media only screen and (max-width : $lg)
+				padding: 2rem
+					bottom: 1rem
+				margin:
+					top: 1.2%
+					bottom: 1.2%
+			@media only screen and (max-width : 830px)
 				padding: 1.1rem
-					bottom: .5rem
+			@media only screen and (max-width : 694px)
+				width: 100%
 				margin:
 					top: .8rem
 					bottom: .8rem
-			@media only screen and (max-width : $md)
-				width: 100%
 			.promotionsItemContent
 				display: flex
 				flex-direction: column
 				justify-content: space-between
 				padding-bottom: 2.8rem
-				margin-right: 1rem
-				@media only screen and (max-width : 1086px)
+				margin-right: 3rem
+				flex-shrink: 0
+				@media only screen and (max-width : $lg)
+					margin-right: 0
+					padding: 0
 					width: 100%
-				@media only screen and (max-width : 882px)
-					padding-bottom: 0
+				@media only screen and (max-width : 694px)
+					align-items: center
+				@media only screen and (max-width : 494px)
+					align-items: flex-start
 				.promotionsItemTitle
 					@media only screen and (max-width : 1086px)
 						margin:
-							top: 1.5rem
-							bottom: 2.7rem
+							top: 1.8rem
+							bottom: 2rem
 				.promotionsItemCallback
 					display: flex
 					justify-content: space-between
@@ -430,16 +445,27 @@ p, a
 					button
 						padding: 1.2rem 3.5rem
 						line-height: 1.6rem
-						@media only screen and (max-width : 882px)
-							padding: 1rem 1rem
-				.promotionsMobileImage
-					@media only screen and (min-width :  1086px)
-						display: none
+						@media only screen and (max-width : 830px)
+							padding: 1.2rem 2.5rem
+						@media only screen and (max-width : 384px)
+							padding: 1rem 1.2rem
+					@media only screen and (max-width : 694px)
+						margin-left: 1.4rem
+					@media only screen and (max-width : 494px)
+						margin-left: 0
+						width: 100%
+					.promotionsMobileImage
+						@media only screen and (min-width :  993px)
+							display: none
+						@media only screen and (max-width : 694px)
+							margin-left: 3rem
+						@media only screen and (max-width : 494px)
+							margin-left: 0
 			.promotionsItemImage
-				display: flex
-				@media only screen and (max-width : 1086px)
+				flex-shrink: 4
+				align-self: end
+				@media only screen and (max-width : $lg)
 					display: none
-
 
 .service
 	margin-bottom: 5.7rem
@@ -493,7 +519,6 @@ p, a
 				button
 					width: 100%
 
-
 .contacts
 	display: flex
 	justify-content: space-between
@@ -515,7 +540,7 @@ p, a
 		bottom: 1.5rem
 	display: flex
 	flex-direction: column
-	align-items: start
+	align-items: flex-start
 	box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2)
 	@media only screen and (max-width : $lg)
 		padding-bottom: 3.5rem
@@ -527,7 +552,7 @@ p, a
 	.contactsWrap
 		display: flex
 		flex-direction: column
-		align-items: start
+		align-items: flex-start
 		@media only screen and (max-width : $lg)
 			margin: 0 auto
 		> *
@@ -655,7 +680,7 @@ p, a
 				color: #000
 	.mobileMenuHeader
 		display: flex
-		justify-content: end
+		justify-content: flex-end
 		padding: 20px 0px
 		.closeMobileMenu
 			font-size: 2rem
