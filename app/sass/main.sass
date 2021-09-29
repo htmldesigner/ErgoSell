@@ -87,9 +87,12 @@ p, a
 	height: auto
 
 .img-rotate
-	@media only screen and (max-width : $lg)
-		transform: rotate(-21deg)
+	@media only screen and (max-width : $md)
+		transform: rotate(-30deg)
 		margin-top: 3rem
+		margin-bottom: 19vw
+	.bannerRightAside
+		overflow: hidden
 
 .text-center
 	text-align: center
@@ -275,41 +278,64 @@ p, a
 	padding: 4.65rem
 		left: 0
 		right: 0
-		bottom: 4.8rem
+		bottom: 2.5rem
 	@media only screen and (max-width : $lg)
-		padding: 1.5rem 0 0
+		padding: 3rem 0
+	@media only screen and (max-width : $md)
+		padding: 1.2rem 0
 	.bannerContent
 		display: flex
 		justify-content: space-between
 		color: #fff
+		@media only screen and (max-width : $md)
+			overflow: hidden
 		> *
 			flex: 1 1 auto
-		@media only screen and (max-width : $lg)
+		@media only screen and (max-width : $md)
 			flex-wrap: wrap
 		.bannerLeftAside
 			width: 50%
+			flex-shrink: 0
 			margin:
-				left: 10px
+				left: 15px
 				//right: 15px
-
+			//@media only screen and (max-width :  1316px)
+			//	flex-shrink: 1
+			@media only screen and (max-width :  874px)
+				flex-shrink: 0
+			@media only screen and (max-width : $lg)
+				margin:
+					right: 15px
 			.bannerTitle
 				margin-bottom: 2.70rem
+				.h1
+					@media only screen and (max-width : $md)
+						font-size: 6vw
+						Line-height: 7vw
+					@media only screen and (max-width : $sm)
+						font-size: 7.5vw
+						Line-height: 9vw
 			.bannerDescription
 				margin-bottom: 2.55rem
 				p
 					font: 1rem/1.4rem $default-font
 			.bannerCallback
-				@media only screen and (max-width : $md)
+				@media only screen and (max-width : $lg)
 					button
 						padding: 1rem 2rem
 			@media only screen and (max-width : $lg)
 				.bannerTitle, .bannerDescription
 					margin-bottom: 2.14rem
 		.bannerRightAside
-			overflow: hidden
 			width: 50%
-			display: flex
-			justify-content: center
+			//display: flex
+			//justify-content: center
+			//img
+			//	display: block
+			//	min-width: 110%
+			//	height: auto
+			//	@media only screen and (max-width : 1316px)
+			//		min-width: auto
 
 
 // help class for reversal of banner sections
@@ -666,7 +692,7 @@ p, a
 	top: 0
 	background-color: #fff
 	z-index: 9999
-	padding: 0px 20px
+
 	text-align: center
 	&.active
 		display: block
@@ -675,15 +701,17 @@ p, a
 		margin: 0
 		li
 			list-style: none
-			margin: 15px 0
+			margin: 1px 0
+			background-color: $accent
+			padding: 1rem
 			a
 				font: 1.2rem/1.4rem OpenSans-Bold
 				text-decoration: none
-				color: #000
+				color: #fff
 	.mobileMenuHeader
 		display: flex
 		justify-content: flex-end
-		padding: 20px 0px
+		padding: 20px
 		.closeMobileMenu
 			font-size: 2rem
 			line-height: 1rem
